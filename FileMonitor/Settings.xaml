@@ -1,0 +1,16 @@
+﻿<Window x:Class="FileMonitor.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileMonitor"
+        mc:Ignorable="d"
+        Title="Settings" Height="250" Width="800" Padding="20">
+    <StackPanel>
+        <Label Content="Directory Path" FontSize="16" FontFamily="Arial Black"/>
+        <TextBox Name="pathnm" FontSize="16" FontFamily="Arial Black"  BorderBrush="Black"/>
+        <Label Content="Check Time as millisecond" FontSize="16" FontFamily="Arial Black"/>
+        <TextBox Name="timenm" FontSize="16" FontFamily="Arial Black" BorderBrush="Black" />
+        <Button Name="savebtn" Content="Save" Height="40" Width="200" FontSize="20" FontFamily="Arial Black" Click="savebtn_Click"/>
+    </StackPanel>
+</Window>
