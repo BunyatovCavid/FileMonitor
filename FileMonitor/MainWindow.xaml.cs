@@ -35,10 +35,16 @@ namespace FileMonitor
             checkpath = "";
             checkuplist = new();
             specialwriter = new();
-            path = @"C:\Users\Cavid\Desktop\ForTest";
+            CreateDirectory();
             time = 5000;
             AsyncCheck();
 
+        }
+
+        private void CreateDirectory()
+        {
+            path = @"C:\Users\Cavid\Desktop\FileMonitorInputFiles";
+            Directory.CreateDirectory(path);
         }
 
         public async void CheckSyncrone()
@@ -175,9 +181,7 @@ namespace FileMonitor
 
         private void Uploadbtn_Click(object sender, RoutedEventArgs e)
         {
-            Choose choose = new Choose();
-            choose.ShowDialog();
-
+            Process.Start("explorer.exe", MainWindow.path);
         }
 
         private void Setting_Click(object sender, RoutedEventArgs e)
