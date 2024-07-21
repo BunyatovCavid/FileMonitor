@@ -29,6 +29,7 @@ namespace FileMonitor
         private void Selectbtn_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("explorer.exe", MainWindow.path);
+            this.Close();
         }
     }
 }
