@@ -1,8 +1,11 @@
-﻿using FileMonitor.Models;
+
+using FileMonitor.Models;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,15 +19,14 @@ using System.Xml.Serialization;
 
 namespace FileMonitor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         List<Data> checkuplist;
         public static string path;
         public static int time;
         string checkpath;
+
         SpecialWriter specialwriter;
 
         public MainWindow()
@@ -113,6 +115,7 @@ namespace FileMonitor
             }
         }
 
+
         public void GetFiles()
         {
             try
@@ -172,7 +175,9 @@ namespace FileMonitor
 
         private void Uploadbtn_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("explorer.exe", MainWindow.path);
+            Choose choose = new Choose();
+            choose.ShowDialog();
+
         }
 
         private void Setting_Click(object sender, RoutedEventArgs e)
@@ -183,6 +188,7 @@ namespace FileMonitor
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             StringBuilder response = new StringBuilder();
             var data = (Data)DataLists.SelectedItem;
             var reader = new StreamReader(MainWindow.path + @"\" + data.Name + "." + data.Type);
@@ -200,8 +206,4 @@ namespace FileMonitor
 
         }
     }
-
-
-
-
 }

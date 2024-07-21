@@ -10,12 +10,15 @@ using System.Windows;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using CsvHelper;
+
 using FileMonitor.Models;
+
 
 namespace FileMonitor
 {
     public class SpecialWriter
     {
+
         static string directorypath;
         static SpecialWriter()
         {
@@ -23,12 +26,14 @@ namespace FileMonitor
             Directory.CreateDirectory(directorypath);
         }
 
+
         public void XmlWriter(string datas, string name)
         {
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(string));
                 var file = File.Create(directorypath + @"\" + $"{name}.xml");
+
                 serializer.Serialize(file, datas);
             }
             catch (Exception ex)
@@ -36,6 +41,7 @@ namespace FileMonitor
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         public async Task SpecialCsvWriter(string datas, string name)
         {
@@ -59,6 +65,7 @@ namespace FileMonitor
 
             try
             {
+
                 using (var writer = new StreamWriter(directorypath + @"\" + $"{name}.txt"))
                 {
                     await writer.WriteAsync(data);
@@ -73,8 +80,5 @@ namespace FileMonitor
 
 
     }
-
-
-
 
 }
