@@ -41,7 +41,7 @@ namespace FileMonitor
 
         }
 
-        public void CheckSyncrone()
+        public async void CheckSyncrone()
         {
             try
             {
@@ -92,11 +92,11 @@ namespace FileMonitor
 
                         if (file.EndsWith(".txt"))
                         {
-                            specialwriter.TxtWriter(data.ToString(), file.Remove(file.Length - 4, 4));
+                            await specialwriter.TxtWriter(data.ToString(), file.Remove(file.Length - 4, 4));
                         }
                         if (file.EndsWith(".csv"))
                         {
-                            specialwriter.SpecialCsvWriter(data.ToString(), file.Remove(file.Length - 4, 4));
+                           await specialwriter.SpecialCsvWriter(data.ToString(), file.Remove(file.Length - 4, 4));
                         }
                         if (file.EndsWith(".xml"))
                         {
