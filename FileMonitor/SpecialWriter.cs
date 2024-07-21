@@ -48,13 +48,10 @@ namespace FileMonitor
             try
             {
                 using (var writer = new StreamWriter(directorypath + @"\" + $"{name}.csv"))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-
+                    await csv.WriteRecordsAsync(datas);
                 }
-                //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                //{
-                //    await csv.WriteRecordsAsync(datas);
-                //}
             }
             catch (Exception ex)
             {
